@@ -88,7 +88,7 @@ function createDraft(playersCount, bannedCivs) {
       playerTemplate += `${currentPlayerIndex + 1}. `
     }
 
-    playerTemplate += `${randomizedCivsInDraft[i].nation} - ${randomizedCivsInDraft[i].leader} / `;
+    playerTemplate += `${randomizedCivsInDraft[i].nation} - ${randomizedCivsInDraft[i].leader} /`;
 
     let nextNationPlayerIndex = Math.floor((+i + 1) / civsPerPlayer)
     if (nextNationPlayerIndex > currentPlayerIndex) {   

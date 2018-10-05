@@ -149,7 +149,16 @@
     {
       "name": "giant",
       "size": 12,
-      "defaultBans": []
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
+      ]
     },
     {
       "name": "large",
@@ -160,7 +169,9 @@
         "Seondeok",
         "Shaka",
         "Tomyris",
-        "John Curtin"
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
       ]
     },
     {
@@ -226,7 +237,9 @@
     "Seondeok",
     "Shaka",
     "Tomyris",
-    "John Curtin"
+    "John Curtin",
+    "Lautaro",
+    "Genghis Khan"
   ],
   "defaultDraftSize": 6
 }
