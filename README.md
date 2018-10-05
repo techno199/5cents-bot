@@ -2,10 +2,12 @@
 Install node.js. Tested version is 8.11.<br>
 Create and save config.json file in the root folder.<br>
 Shape of config as follows:<br>
-{<br>
-  "prefix": "/",<br>
-  "token": "Insert your auth token here"<br>
-}<br>
+```
+{
+  "prefix": "/",
+  "token": "Insert your auth token here"
+}
+```
 Open console in the root folder and type: node index.js<br>
 Bot should say that it's ready to use.
 
