@@ -14,5 +14,5 @@ Got to <a href='https://discordapp.com/developers/applications'>your application
 Give your child fancy avatar and nickname, and there it is - your token.
 <h4>How do I invite bot to the channel?</h4>
 You have to have 'Manage Server' permission first. If you do, go to your application settings and copy its ID.
-Paste you client ID into this link https://discordapp.com/oauth2/authorize?client_id=<h5>YOU_CLIENT_ID_GOES_HERE</h5>&scope=bot and follow it in your browser.
+Paste you client ID into this link https://discordapp.com/oauth2/authorize?client_id=<b>YOU_CLIENT_ID_GOES_HERE<b>&scope=bot and follow it in your browser.
 Viola!
