@@ -1,4 +1,4 @@
-<h1>Quickstart:<h1><br>
+<h1>Quickstart:</h1><br>
 Install node.js. Tested version is 8.11.<br>
 Create and save config.json file in the root folder.<br>
 Shape of config as follows:<br>
