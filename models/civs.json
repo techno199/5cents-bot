@@ -1,0 +1,232 @@
+{
+  "civilizations": [
+    {
+      "leader": "Alexander",
+      "nation": "Macedon"
+    },
+    {
+      "leader": "Amanitore",
+      "nation": "Nubia"
+    },
+    {
+      "leader": "Catherine de Medici",
+      "nation": "France"
+    },
+    {
+      "leader": "Chandragupta",
+      "nation": "India"
+    },
+    {
+      "leader": "Cleopatra",
+      "nation": "Egypt"
+    },
+    {
+      "leader": "Cyrus",
+      "nation": "Persia"
+    },
+    {
+      "leader": "Frederick Barbarossa",
+      "nation": "Germany"
+    },
+    {
+      "leader": "Ghandi",
+      "nation": "India"
+    },
+    {
+      "leader": "Genghis Khan",
+      "nation": "Mongolia"
+    },
+    {
+      "leader": "Gilgamesh",
+      "nation": "Sumeria"
+    },
+    {
+      "leader": "Gitarja",
+      "nation": "Indinesia"
+    },
+    {
+      "leader": "Gorgo",
+      "nation": "Greece"
+    },
+    {
+      "leader": "Harald Hardrada",
+      "nation": "Norway"
+    },
+    {
+      "leader": "Hojo Tokimune",
+      "nation": "Japan"
+    },
+    {
+      "leader": "Jadwiga",
+      "nation": "Poland"
+    },
+    {
+      "leader": "Jayavarman VII",
+      "nation": "Khmer"
+    },
+    {
+      "leader": "John Curtin",
+      "nation": "Australia"
+    },
+    {
+      "leader": "Lautaro",
+      "nation": "Mapuche"
+    },
+    {
+      "leader": "Montezuma",
+      "nation": "Aztec"
+    },
+    {
+      "leader": "Mvemba a Nzinga",
+      "nation": "Kongo"
+    },
+    {
+      "leader": "Pedro II",
+      "nation": "Brazil"
+    },
+    {
+      "leader": "Pericles",
+      "nation": "Greece"
+    },
+    {
+      "leader": "Peter",
+      "nation": "Russia"
+    },
+    {
+      "leader": "Philip II",
+      "nation": "Spain"
+    },
+    {
+      "leader": "Poundmaker",
+      "nation": "Cree"
+    },
+    {
+      "leader": "Qin Shi Huang",
+      "nation": "China"
+    },
+    {
+      "leader": "Robert the Bruce",
+      "nation": "Scotland"
+    },
+    {
+      "leader": "Saladin",
+      "nation": "Arabia"
+    },
+    {
+      "leader": "Seondeok",
+      "nation": "Korea"
+    },
+    {
+      "leader": "Shaka",
+      "nation": "Zulu"
+    },
+    {
+      "leader": "Tamar",
+      "nation": "Georgia"
+    },
+    {
+      "leader": "Teodor Roosevelt",
+      "nation": "America"
+    },
+    {
+      "leader": "Tomyris",
+      "nation": "Scythia"
+    },
+    {
+      "leader": "Trajan",
+      "nation": "Rome"
+    },
+    {
+      "leader": "Victoria",
+      "nation": "England"
+    },
+    {
+      "leader": "Wilhelmina",
+      "nation": "Netherlands"
+    }
+  ],
+  "mapTypes": [
+    {
+      "name": "giant",
+      "size": 12,
+      "defaultBans": []
+    },
+    {
+      "name": "large",
+      "size": 10,
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin"
+      ]
+    },
+    {
+      "name": "standard",
+      "size": 8,
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
+      ]
+    },
+    {
+      "name": "small",
+      "size": 6,
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
+      ]
+    },
+    {
+      "name": "tiny",
+      "size": 4,
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
+      ]
+    },
+    {
+      "name": "duel",
+      "size": 2,
+      "defaultBans": [
+        "Alexander",
+        "Gilgamesh",
+        "Seondeok",
+        "Shaka",
+        "Tomyris",
+        "John Curtin",
+        "Lautaro",
+        "Genghis Khan"
+      ]
+    }
+  ],
+  "defaultBans": [
+    "Alexander",
+    "Gilgamesh",
+    "Seondeok",
+    "Shaka",
+    "Tomyris",
+    "John Curtin"
+  ],
+  "defaultDraftSize": 6
+}
