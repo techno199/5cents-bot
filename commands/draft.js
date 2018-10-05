@@ -1,5 +1,6 @@
 const config = require('../models/civs.json');
 const parser = require('../parser');
+const Discord = require('discord.js');
 
 const civs = config.civilizations;
 const overallCivsCount = civs.length;
@@ -31,7 +32,13 @@ module.exports = {
         defaultBans = defaultBans.concat(parseBans(argsMap))
       }
 
-      message.channel.send(createDraft(argsMap.attrs.playersCount, defaultBans));
+      let {bannedCivs, draft} = createDraft(argsMap.attrs.playersCount, defaultBans);
+      let embed = new Discord.RichEmbed();
+      embed
+        .setColor('#0099ff')
+        .addField('Banned civs', bannedCivs)
+        .addField('Draft', draft);
+      message.channel.send(embed);
     }
     catch (error){
       message.channel.send(ERROR_MSG);
@@ -61,7 +68,7 @@ function createDraft(playersCount, bannedCivs) {
   }
 
   // Create banned civs header when all bans finally calculated
-  bannedCivsHeader = _createBannedCivsHeader(bannedCivs);
+  bannedCivs = _createBannedCivsHeader(bannedCivs);
 
   let randomizedCivsInDraft = [];
   while(civsInDraft.length > 0) {
@@ -100,7 +107,7 @@ function createDraft(playersCount, bannedCivs) {
     prevPlayerIndex = currentPlayerIndex;
   }
 
-  return `${bannedCivsHeader}\n\n${draft}`;
+  return {bannedCivs, draft};
 }
 
 function getRandomInt(min, max) {
@@ -144,5 +151,5 @@ function _createBannedCivsHeader(bannedCivs) {
   for (let leaderName in leaderNames) {
     bannedCivs.push(leaderName);
   }
-  return `Banned leaders: ${bannedCivs.join(', ') || 'none'}`
+  return `${bannedCivs.join(', ') || 'none'}`
 }
