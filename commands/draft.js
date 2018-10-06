@@ -1,5 +1,5 @@
 const config = require('../models/civs.json');
-const parser = require('../parser');
+const ArgsMap = require('../parser');
 const Discord = require('discord.js');
 
 const civs = config.civilizations;
@@ -10,35 +10,39 @@ const ERROR_MSG = 'An error occurend trying to execute command';
 
 module.exports = {
   name: 'draft',
-  execute(message, args) {
+  /**
+   * 
+   * @param {message} message 
+   * @param {ArgsMap} argsMap 
+   */
+  execute(message, argsMap) {
     try {
-      let argsMap = parser.parseArgs(args);
-      let mapType = mapTypes.find(type => type.size == argsMap.attrs.playersCount);
+      let mapType = mapTypes.find(type => type.size == argsMap.attributes.playersCount);
       let defaultBans = [];
       
       // In case of incorrect amount of civs provided
       // we want to return appropriate message
-      if (argsMap.attrs.playersCount < 2 || argsMap.attrs.playersCount > 12) {
+      if (argsMap.attributes.playersCount < 2 || argsMap.attributes.playersCount > 12) {
         return message.channel.send('Players amount must be between 2 and 12');
       }
 
       // Skip default bans in case flag provided
-      if(!parser.hasFlag(argsMap, 'no-default-bans')) {
+      if(!argsMap.hasFlag('no-default-bans')) {
         defaultBans = mapType ? mapType.defaultBans.slice() : config.defaultBans;
       }
 
       // Add custom bans in case them provided
-      if (argsMap.attrs.bans) {
+      if (argsMap.attributes.bans) {
         defaultBans = defaultBans.concat(parseBans(argsMap))
       }
 
-      let {bannedCivs, draft} = createDraft(argsMap.attrs.playersCount, defaultBans);
+      let {bannedCivs, draft} = createDraft(argsMap.attributes.playersCount, defaultBans);
       let embed = new Discord.RichEmbed();
       embed
         .setColor('#0099ff')
         .addField('Banned civs', bannedCivs)
         .addField('Draft', draft);
-      message.channel.send(embed);
+      message.channel.send(embed)
     }
     catch (error){
       message.channel.send(ERROR_MSG);

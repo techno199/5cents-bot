@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
 const fs = require('fs');
+const ArgsMap = require('./parser');
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -20,14 +21,13 @@ client.on('ready', () => {
 client.on('message', message => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   // Get command and args without prefix
-  const args = message.content.substr(1).split(/ +/);
-  const command = args.shift().toLowerCase();
+  const argsMap = new ArgsMap(message);
 
   //Return if unknown command given
-  if (!client.commands.has(command)) return
+  if (!client.commands.has(argsMap.command)) return
   
   try {
-    client.commands.get(command).execute(message, args);
+    client.commands.get(argsMap.command).execute(message, argsMap);
   }
   catch(error) {
     console.log(error);

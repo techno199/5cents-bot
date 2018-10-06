@@ -1,48 +1,41 @@
 const DEFAULT_DRAFT_SIZE = require('../models/civs.json').defaultDraftSize;
 
-module.exports = {
-  /**
-   * returns argsMap object, containinig 
-   * attributes key-value map
-   * and flags array
-   * @param {string} args Arguments to be parsed
-   */
-  parseArgs(args) {
-    let argsMap = {
-    };
-    argsMap.flags = [];
-    argsMap.attrs = {};
-  
+module.exports = class ArgsMap {
+  constructor(message) {
+    this.attributes = {}
+    this.flags = [];
+
+    const args = message.content.substr(1).split(/ +/);
+    this.command = args.shift().toLowerCase();
+
+    this._parseArgs(args);
+  }
+
+  _parseArgs(args) {
     for (let arg of args) {
-      let attribute, value
-      let parsedArg = arg.split('=');
-  
-      // Populate key=value pairs
-      if(parsedArg.length > 1) {
+      let attribute, value, parsedArg = arg.split('=');
+
+      if (parsedArg.length > 1) {
         attribute = parsedArg[0];
-        value = parsedArg.slice(1, parsedArg.length).join('');
-        argsMap.attrs[attribute] = value;
+        value = parsedArg.slice(1, this.parseArgs.length).join('');
+        this.attributes[attribute] = value;
       }
-      // Populate flags and draft size
       else if (parseInt(arg)) {
-        argsMap.attrs.playersCount = parseInt(arg);
+        this.attributes.playersCount = parseInt(arg);
       }
-      else if(arg.startsWith('--')) {
-        argsMap.flags.push(arg.replace('--', ''));
+      else if (arg.startsWith('--')) {
+        this.flags.push(args.replace('--', ''));
       }
     }
-    if (!argsMap.attrs.playersCount) {
-      argsMap.attrs.playersCount = DEFAULT_DRAFT_SIZE;
+
+    if(!this.attributes.playersCount) {
+      this.attributes.playersCount = DEFAULT_DRAFT_SIZE;
     }
-    return argsMap;
-  },
-  /**
-   * returns true if argsMap contains desired flag
-   * @param {argsMap} argsMap argsMap object
-   * @param {string} flag desired flag
-   */
-  hasFlag(argsMap, flag) {
-    if (argsMap.flags.findIndex(f => f === flag) !== -1) return true
+  }
+
+  hasFlag(flag) {
+    flag = flag.replace('--', '');
+    if (this.flags.findIndex(f => f === flag) !== -1) return true;
     return false;
   }
 }
