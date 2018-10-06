@@ -121,10 +121,10 @@ function getRandomInt(min, max) {
 /**
  * Return an array of bans provided by argsMap.
  * If no bans provided or in case of incorrect input return an empty array
- * @param {argsMap} argsMap 
+ * @param {ArgsMap} argsMap 
  */
 function parseBans(argsMap) {
-  let customBans = argsMap.attrs.bans,
+  let customBans = argsMap.attributes.bans,
     correctBans = [];
   if (!customBans) return correctBans;
   // Parse handmade array of civs

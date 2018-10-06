@@ -17,14 +17,14 @@ module.exports = class ArgsMap {
 
       if (parsedArg.length > 1) {
         attribute = parsedArg[0];
-        value = parsedArg.slice(1, this.parseArgs.length).join('');
+        value = parsedArg.slice(1, parsedArg.length).join('');
         this.attributes[attribute] = value;
       }
       else if (parseInt(arg)) {
         this.attributes.playersCount = parseInt(arg);
       }
       else if (arg.startsWith('--')) {
-        this.flags.push(args.replace('--', ''));
+        this.flags.push(arg.replace('--', ''));
       }
     }
 
