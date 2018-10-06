@@ -1,19 +1,23 @@
-const parser = require('../parser');
+const ArgsMap = require('../parser');
 const rules = require('../models/rules.json');
 const civs = require('../models/civs.json');
 
 module.exports = {
   name: 'rules',
-  execute(message, args) {
-    let argsMap = parser.parseArgs(args);
+  /**
+   * 
+   * @param {message} message 
+   * @param {ArgsMap} argsMap 
+   */
+  execute(message, argsMap) {
     if (argsMap.flags.length) {
-      if (parser.hasFlag(argsMap, 'leader-names')) {
+      if (argsMap.hasFlag('leader-names')) {
         message.reply(`Leader names list:\n${civs.civilizations.map(civ => civ.leader).join('\n')}`);
       }
-      if (parser.hasFlag(argsMap, 'draft')) {
+      if (argsMap.hasFlag('draft')) {
         message.reply(`${rules.draft}`);
       }
-      if (parser.hasFlag(argsMap, 'default-bans')) {
+      if (argsMap.hasFlag('default-bans')) {
         message.reply(`Default bans: \n${civs.defaultBans.join('\n')}`);
       }
     }
