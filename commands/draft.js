@@ -123,7 +123,7 @@ function getRandomInt(min, max) {
  * If no bans provided or in case of incorrect input return an empty array
  * @param {ArgsMap} argsMap 
  */
-function parseBans(argsMap) {
+module.exports.parseBans = function parseBans(argsMap) {
   let customBans = argsMap.attributes.bans,
     correctBans = [];
   if (!customBans) return correctBans;
