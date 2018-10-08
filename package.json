@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive \"./**/*.spec.js\""
+    "test": "mocha --recursive \"./**/*.spec.js\"",
+    "deploy": "pm2 start index.js --name \"civilization-bot\"",
+    "stop": "pm2 delete \"civilization-bot\"",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",

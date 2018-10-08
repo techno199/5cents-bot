@@ -1,5 +1,5 @@
 const assert = require('assert');
-const draft = require('./draft');
+const draft = require('../commands/draft');
 const ArgsMap = require('../parser');
 
 describe('Draft', function() {
